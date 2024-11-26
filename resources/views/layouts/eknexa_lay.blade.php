@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="googlebot-news" content="noindex,nofollow" />
-	<meta name="googlebot" content="noindex,nofollow" />
-	<meta name="robots" content="noindex,nofollow" />
-	<meta name="author" content="George Marinos" />
-	<meta name="description" content="Εκδηλώσεις ΕΚΝΕΧΑ">
-	<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64, AAABAAMAEBAAAAEAIABoBAAANgAAACAgAAABACAAKBEAAJ4EAAAwMAAAAQAgAGgmAADGFQAAKAAA
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="googlebot-news" content="noindex,nofollow" />
+    <meta name="googlebot" content="noindex,nofollow" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="author" content="George Marinos" />
+    <meta name="description" content="Εκδηλώσεις ΕΚΝΕΧΑ">
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64, AAABAAMAEBAAAAEAIABoBAAANgAAACAgAAABACAAKBEAAJ4EAAAwMAAAAQAgAGgmAADGFQAAKAAA
 ABAAAAAgAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJubm2zw8PD++Pj4//n5+f/y8vL/9fX1//b29v/q6ur+eHh4gQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFJSUiKr
 q6vQysrK/u7u7v/39/f/8vLy//T09P/z8/P/5+fn/3JycoYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABTU1Nfzs7O/dbW1v/x8fH/8/Pz/+7u7v/z8/P/7e3t/9/f3/9tbW2RAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAABRUVFccnJyf2xsbH+8vLy/+7u7v/w8PD/9vb2/9/f3//FxcX/mJiY0lVVVQYAAAAAAAAAAAAAAAAAAAAATU1NF7q6uue3t7fwZmZmucLCwv/k5OT/5+fn/+rq6v/Jycn/pqam/nx8fIlx
@@ -146,30 +145,137 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=greek-ext,latin-ext' rel='stylesheet' type='text/css'>
-	<link href="style.css" rel="stylesheet" type="text/css" />
-	<!-- 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=greek-ext,latin-ext' rel='stylesheet' type='text/css'>
 
 
-	<title>StinPlateia</title>
+
+    <title>StinPlateia</title>
 
 </head>
 
 <body>
-
-	<?php
-	include_once 'header.php';
-	?>
-	<div id="main">
-		<?php
-		include_once 'keimena.php';
-		?>
-	</div>
-
-	<?php
-	include_once 'footer.php';
-	?>
-
+    <header>
+        @include('eknexa.header')">
+    </header>
+    @yield('content')
+    <footer>@include('eknexa.footer')</footer>
 </body>
+
+
+<style>
+    @charset "utf-8";
+    /* CSS Document */
+
+    body {
+        font-family: 'Open Sans', sans-serif;
+        height: 100vh;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bolder;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    header {
+        background: #333;
+        height: 80px;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 99;
+    }
+
+    #logo {
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+    #add {
+        background: none;
+        border: none;
+        position: absolute;
+        font-size: 32px;
+        margin-top: 30px;
+        margin-right: 20px;
+        right: 0;
+    }
+
+    #add a {
+        color: white;
+        text-decoration: none;
+    }
+
+    #add:active a,
+    #add:visited a {
+        color: white;
+    }
+
+    footer {
+        background: #333;
+        bottom: 0;
+        height: 25px;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 99;
+    }
+
+    #footer_head {
+        background: #333;
+        height: 80px;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 99;
+    }
+
+    main {
+        margin-top: 100px;
+        width: 97%;
+    }
+
+    .yliko {
+        border-bottom: solid 1px black;
+        padding-block: 40px;
+    }
+
+    .yliko h1 {
+        margin-bottom: 5px;
+    }
+
+    .yliko p {
+        margin-bottom: 30px;
+        margin-left: 30px;
+    }
+
+    .yliko.last {
+        border-bottom: none;
+    }
+
+    .img {
+        border: 1px solid black;
+        display: block;
+        height: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        width: 200px;
+    }
+
+    #err {
+        text-align: center;
+    }
+
+    #err p {
+        margin-top: 140px;
+    }
+</style>
 
 </html>
