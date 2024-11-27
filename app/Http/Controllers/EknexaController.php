@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Eknexa;
 use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Support\Facades\Storage;
 
 class EknexaController extends Controller
 {
@@ -34,8 +36,13 @@ class EknexaController extends Controller
                 // Generate a unique file name
                 $fileName = time() . '-' . uniqid() . '.' . $request->img_upload->extension();
                 $imagePath = $request->file('img_upload')->storeAs('images', $fileName, 'b2');
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 return redirect()->back()->with('error', 'Error uploading the image: ' . $e->getMessage());
+            }
+
+            if ($imagePath) {
+                // Generate a temporary URL for private access
+                $imageUrl = Storage::disk('b2')->temporaryUrl($imagePath, now()->addMinutes(5));
             }
         }
 

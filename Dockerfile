@@ -20,8 +20,6 @@ WORKDIR /var/www
 # Copy your application files into the container
 COPY . .
 
-RUN composer require marcandreappel/flysystem-backblaze -W
-
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
 
