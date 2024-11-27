@@ -27,11 +27,12 @@ class EknexaController extends Controller
         ]);
 
         $imagePath = null;
+
         if ($request->hasFile('img_upload')) {
 
             // Generate a unique file name
             $fileName = time() . '-' . uniqid() . '.' . $request->img_upload->extension();
-            $imagePath = $request->file('img_upload')->storeAs('images', $fileName, 'public');
+            $imagePath = $request->file('img_upload')->storeAs('images', $fileName, 'b2');
         }
 
         Eknexa::create([

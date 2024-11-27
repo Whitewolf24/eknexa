@@ -6,8 +6,7 @@
     <div class="yliko{{ $loop->last ? ' last' : '' }}">
         <h1>{{ $post->title }}</h1>
         @if ($post->image_path)
-        <img class="img" src="{{ asset('storage/' . $post->image_path) }}" alt="{{ $post->title }}">
-        @endif
+        <img src="{{ Storage::disk('b2')->url($post->image_path) }}" alt="{{ $post->title }}"> @endif
         <p>{!! nl2br(e($post->content)) !!}</p>
     </div>
 </main>

@@ -20,6 +20,8 @@ WORKDIR /var/www
 # Copy your application files into the container
 COPY . .
 
+RUN composer require marcandreappel/flysystem-backblaze -W
+
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
 
@@ -33,8 +35,6 @@ COPY nginx.conf /etc/nginx/nginx.conf
 RUN chown -R www-data:www-data /var/www && \
     chmod -R 755 /var/www && \
     chown -R www-data:www-data /etc/nginx /var/log/nginx
-
-RUN php artisan storage:link
 
 # Expose HTTP port
 EXPOSE 80

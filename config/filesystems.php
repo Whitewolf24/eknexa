@@ -40,7 +40,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
         ],
@@ -57,6 +57,14 @@ return [
             'throw' => false,
         ],
 
+        'b2' => [
+            'driver' => 'backblaze',
+            'key_id' => env('B2_KEY_ID'),
+            'app_key' => env('B2_APP_KEY'),
+            'bucket' => env('B2_BUCKET_NAME'),
+            'region' => env('B2_BUCKET_REGION'),
+            'visibility' => 'public',  // Optional: public or private
+        ],
     ],
 
     /*
@@ -70,8 +78,8 @@ return [
     |
     */
 
-    'links' => [
+    /*  'links' => [
         public_path('storage') => storage_path('app/public'),
-    ],
+    ], */
 
 ];
