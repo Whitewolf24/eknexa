@@ -30,9 +30,13 @@ class EknexaController extends Controller
 
         if ($request->hasFile('img_upload')) {
 
-            // Generate a unique file name
-            $fileName = time() . '-' . uniqid() . '.' . $request->img_upload->extension();
-            $imagePath = $request->file('img_upload')->storeAs('images', $fileName, 'b2');
+            try {
+                // Generate a unique file name
+                $fileName = time() . '-' . uniqid() . '.' . $request->img_upload->extension();
+                $imagePath = $request->file('img_upload')->storeAs('images', $fileName, 'b2');
+            } catch (\Exception $e) {
+                return redirect()->back()->with('error', 'Error uploading the image: ' . $e->getMessage());
+            }
         }
 
         Eknexa::create([
