@@ -58,12 +58,14 @@ return [
         ],
 
         'b2' => [
-            'driver' => 'backblaze',
-            'key_id' => env('B2_KEY_ID'),
-            'app_key' => env('B2_APP_KEY'),
-            'bucket' => env('B2_BUCKET_NAME'),
-            'region' => env('B2_BUCKET_REGION'),
-            'visibility' => 'public',  // Optional: public or private
+            'driver' => 's3',  // Backblaze B2 is compatible with S3 API
+            'key' => env('B2_ACCOUNT_ID'), // Your Backblaze account ID
+            'secret' => env('B2_APPLICATION_KEY'), // Your Backblaze application key
+            'region' => env('B2_BUCKET_REGION'), // The region your bucket is located in
+            'bucket' => env('B2_BUCKET_NAME'), // Your Backblaze bucket name
+            'endpoint' => env('B2_BUCKET_REGION'), // Optional: The endpoint (typically for custom regions)
+            'url' => env('B2_URL'),  // Optional: If you have a custom URL
+            'visibility' => 'private',
         ],
     ],
 
