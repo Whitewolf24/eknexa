@@ -23,12 +23,16 @@ class EknexaController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'img_upload' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'img_upload' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240',
         ]);
 
         $imagePath = null;
         if ($request->hasFile('img_upload')) {
-            $imagePath = $request->file('img_upload')->store('images', 'public');
+            if ($request->hasFile('img_upload')) {
+                // Generate a unique file name
+                $fileName = time() . '-' . uniqid() . '.' . $request->img_upload->extension();
+                $imagePath = $request->file('img_upload')->storeAs('images', $fileName, 'public');
+            }
         }
 
         Eknexa::create([
