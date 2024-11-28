@@ -50,7 +50,6 @@ class EknexaController extends Controller
             }
         }
 
-
         Eknexa::create([
             'title' => $request->title,
             'content' => $request->content,
