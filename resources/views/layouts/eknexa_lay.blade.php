@@ -145,7 +145,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=greek-ext,latin-ext' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans&subset=greek-ext,latin-ext' rel='stylesheet' type='text/css'>
 
 
 
@@ -163,119 +163,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 
 <style>
-    @charset "utf-8";
-    /* CSS Document */
-
-    body {
-        font-family: 'Open Sans', sans-serif;
-        height: 100vh;
-    }
-
-    h1 {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bolder;
-    }
-
-    p {
-        font-size: 15px;
-    }
-
-    header {
-        background: #333;
-        height: 80px;
-        left: 0;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 99;
-    }
-
-    #logo {
-        margin-top: 10px;
-        margin-left: 5px;
-    }
-
-    #add {
-        background: none;
-        border: none;
-        position: absolute;
-        font-size: 32px;
-        margin-top: 30px;
-        margin-right: 20px;
-        right: 0;
-    }
-
-    #add a {
-        color: white;
-        text-decoration: none;
-    }
-
-    #add:active a,
-    #add:visited a {
-        color: white;
-    }
-
-    footer {
-        background: #333;
-        bottom: 0;
-        height: 25px;
-        left: 0;
-        position: fixed;
-        width: 100%;
-        z-index: 99;
-    }
-
-    #footer_head {
-        background: #333;
-        height: 80px;
-        left: 0;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 99;
-    }
-
-    main {
-        margin-top: 100px;
-        width: 97%;
-    }
-
-    .yliko {
-        border-bottom: solid 1px black;
-        padding-block: 40px;
-    }
-
-    .yliko h1 {
-        margin-bottom: 5px;
-    }
-
-    .yliko p {
-        margin-bottom: 30px;
-        margin-left: 30px;
-    }
-
-    .yliko.last {
-        border-bottom: none;
-    }
-
-    .img {
-        border: 1px solid black;
-        display: block;
-        height: 200px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 10px;
-        width: 200px;
-    }
-
-    #err {
-        text-align: center;
-    }
-
-    #err p {
-        margin-top: 140px;
-    }
-</style>
+@charset "utf-8";#add a,#add:active a,#add:visited a{color:#fff}#footer_head,footer,header{background:#333;left:0;position:fixed;width:100%;z-index:99}#err,h2{text-align:center}body{font-family:'Open Sans',sans-serif;height:100vh}h2{font-weight:bolder}p{font-size:15px}#footer_head,header{height:80px;top:0}#logo{margin-top:10px;margin-left:5px}#add{background:0 0;border:none;position:absolute;font-size:32px;margin-top:30px;margin-right:20px;right:0}#add a{text-decoration:none}footer{bottom:0;height:25px}main{margin-top:100px;width:97%}.yliko{border-bottom:1px solid #000;padding-block:40px}.yliko h2{margin-bottom:25px}.yliko p{margin-bottom:30px;margin-left:30px}.yliko.last{border-bottom:none}.post_img{border:1px solid #000;display:block;height:200px;margin-left:auto;margin-right:auto;padding:10px;width:200px}#err p{margin-top:140px}</style>
 
 </html>

@@ -145,7 +145,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=greek-ext,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans&subset=greek-ext,latin-ext' rel='stylesheet' type='text/css'>
 
 
     <title>StinPlateia - Create Post</title>
@@ -162,132 +162,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 
 <style>
-    @charset "utf-8";
-    /* CSS Document */
-
-    body {
-        font-family: 'Open Sans', sans-serif;
-        height: 100vh;
-    }
-
-    h1 {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bolder;
-    }
-
-    p {
-        font-size: 15px;
-    }
-
-    header {
-        background: #333;
-        height: 80px;
-        left: 0;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 99;
-    }
-
-    #logo {
-        margin-top: 10px;
-        margin-left: 5px;
-    }
-
-
-    footer {
-        background: #333;
-        bottom: 0;
-        height: 25px;
-        left: 0;
-        position: fixed;
-        width: 100%;
-        z-index: 99;
-    }
-
-    #footer_head {
-        background: #333;
-        height: 80px;
-        left: 0;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 99;
-    }
-
-
-    #form {
-        box-sizing: border-box;
-        text-align: center;
-        margin-block: 120px;
-    }
-
-    #title input {
-        margin-top: 140px;
-        margin-bottom: 25px;
-        margin-right: 27px;
-        width: 200px;
-    }
-
-    #title label,
-    #content label {
-        margin-right: 10px;
-    }
-
-    #content label {
-        position: relative;
-        bottom: 170px;
-    }
-
-    #content textarea {
-        height: 300px;
-        width: 350px;
-        margin-right: 80px;
-        margin-bottom: 25px;
-    }
-
-    #create {
-        margin-top: 30px;
-    }
-
-    @media only screen and (max-width: 472px) {
-        #content label {
-            bottom: 5px;
-            right: 150px;
-        }
-
-        #content textarea {
-            margin-right: 20px;
-        }
-
-    }
-
-    @media only screen and (min-width: 472px) and (max-width: 550px) {
-        #title label {
-            margin-left: 60px;
-        }
-
-        #content label {
-            bottom: 150px;
-        }
-
-        #content textarea {
-            margin-right: 20px;
-        }
-
-        #img_upload {
-            margin-left: 40px;
-        }
-    }
-
-    #err {
-        text-align: center;
-    }
-
-    #err p {
-        margin-top: 140px;
-    }
+@charset "utf-8";#footer_head,footer,header{background:#333;left:0;position:fixed;width:100%;z-index:99}#err,#form,h1{text-align:center}#err p,#title input{margin-top:140px}body{font-family:'Open Sans',sans-serif;height:100vh}h1{font-size:20px;font-weight:bolder}p{font-size:15px}#footer_head,header{height:80px;top:0}#logo{margin-top:10px;margin-left:5px}footer{bottom:0;height:25px}#form{box-sizing:border-box;margin-block:120px}#title input{margin-bottom:25px;margin-right:27px;width:200px}#content label,#title label{margin-right:10px}#content label{position:relative;bottom:170px}#content textarea{height:300px;width:350px;margin-right:80px;margin-bottom:25px}#create{margin-top:30px}@media only screen and (max-width:472px){#content label{bottom:5px;right:150px}#content textarea{margin-right:20px}}@media only screen and (min-width:472px) and (max-width:550px){#title label{margin-left:60px}#content label{bottom:150px}#content textarea{margin-right:20px}#img_upload{margin-left:40px}}
 </style>
 
 </html>
