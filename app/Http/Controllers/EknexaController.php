@@ -30,30 +30,34 @@ class EknexaController extends Controller
 
         $imagePath = null;
         $contentFilePath = null;
+        $imageUrl = null;
 
-        // Image upload
+        // Image upload (store in 'images' folder on B2)
         if ($request->hasFile('img_upload')) {
             $fileName = time() . '-' . uniqid() . '.' . $request->file('img_upload')->getClientOriginalExtension();
+            // Store the image in the 'images' folder
             $imagePath = $request->file('img_upload')->storeAs('images', $fileName, 'b2');
-            $imageUrl = "https://f000.backblazeb2.com/file/" . env('B2_BUCKET_NAME') . "/" . $imagePath;
+
+            // Construct the friendly URL for the image (accessible from Backblaze)
+            $imageUrl = "https://f003.backblazeb2.com/file/" . env('B2_BUCKET_NAME') . "/images/" . $fileName;
         }
 
-        // Upload content as a txt file
+        // Upload content as a txt file (store in 'posts' folder on B2)
         $contentFileName = time() . '-' . uniqid() . '.txt';
         $contentFilePath = $request->content;  // Store raw content as file path
 
-        // Save the content file to B2
+        // Save the content file to B2 under 'posts' folder
         Storage::disk('b2')->put('posts/' . $contentFileName, $contentFilePath);
 
-        // Construct the friendly URL for the content file
+        // Construct the friendly URL for the content file (accessible from Backblaze)
         $contentFileUrl = "https://f003.backblazeb2.com/file/" . env('B2_BUCKET_NAME') . "/posts/" . $contentFileName;
 
         // Store post data in the database
         Eknexa::create([
             'title' => $request->title,
             'content' => $request->content,
-            'image_path' => $imagePath,
-            'content_file_path' => $contentFileUrl,
+            'image_path' => $imageUrl,  // Use the friendly URL for the image
+            'content_file_path' => $contentFileUrl, // Use the friendly URL for the content file
         ]);
 
         return redirect('/');

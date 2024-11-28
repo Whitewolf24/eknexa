@@ -27,10 +27,10 @@
     <!-- Display image if available -->
     @if ($post->image_path)
     @php
-
-    $imageFilePath = 'images/' . $post->image_path; 
+    // Use the friendly URL to display the image
+    $imageUrl = $post->image_path; // This is already the friendly URL
     @endphp
-    <img src="{{ 'https://f000.backblazeb2.com/file/' . env('B2_BUCKET_NAME') . '/' . $imageFilePath }}" alt="{{ $post->title }}">
+    <img src="{{ $imageUrl }}" alt="{{ $post->title }}">
     @endif
 </div>
 @endforeach
