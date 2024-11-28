@@ -6,9 +6,11 @@
     <div class="yliko{{ $loop->last ? ' last' : '' }}">
         <h1>{{ $post->title }}</h1>
         @if ($post->image_path)
-        <img src="{{ Storage::disk('b2')->temporaryUrl($post->image_path, now()->addMinutes(5)) }}" alt="{{ $post->title }}">
+        <!-- Use the public URL directly -->
+        <img src="{{ 'https://f000.backblazeb2.com/file/' . env('B2_BUCKET_NAME') . '/' . $post->image_path }}" alt="{{ $post->title }}">
         <p>{!! nl2br(e($post->content)) !!}</p>
+        @endif
     </div>
+    @endforeach
 </main>
-@endforeach
 @endsection
