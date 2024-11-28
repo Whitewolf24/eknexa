@@ -1,6 +1,6 @@
 FROM php:8.2-fpm
 
-# Install necessary system dependencies and PHP extensions
+# Install necessary system dependencies, PHP extensions, and Nginx
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     nginx \
+    libpq-dev \
+    && docker-php-ext-install pdo pdo_pgsql \
     && apt-get clean
 
 # Install Composer globally
@@ -20,11 +22,9 @@ WORKDIR /var/www
 # Copy your application files into the container
 COPY . .
 
-# Install Laravel dependencies
-RUN composer install --no-dev --optimize-autoloader
-
-# Install PostgreSQL PDO extension
-RUN apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql
+# Install Laravel dependencies (production mode, optimized autoloader)
+RUN composer install --no-dev --optimize-autoloader && \
+    composer clear-cache
 
 # Set up Nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
