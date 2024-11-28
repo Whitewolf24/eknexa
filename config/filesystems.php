@@ -65,7 +65,8 @@ return [
             'bucket' => env('B2_BUCKET_NAME'), // Your Backblaze bucket name
             'endpoint' => env('B2_BUCKET_REGION'), // Optional: The endpoint (typically for custom regions)
             'url' => env('B2_URL'),  // Optional: If you have a custom URL
-            'visibility' => 'private',
+            'visibility' => 'public
+            ',
         ],
     ],
 
