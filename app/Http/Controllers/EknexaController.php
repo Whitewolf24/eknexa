@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Eknexa;
 use Illuminate\Http\Request;
-use Exception;
+//use Exception;
 use Illuminate\Support\Facades\Storage;
 
 class EknexaController extends Controller
@@ -29,32 +29,28 @@ class EknexaController extends Controller
         ]);
 
         $imagePath = null;
+        $contentFilePath = null;
 
+        // image upload
         if ($request->hasFile('img_upload')) {
-            // Generate a unique file name with its original extension
             $fileName = time() . '-' . uniqid() . '.' . $request->file('img_upload')->getClientOriginalExtension();
-
-            // Upload the image to the B2 bucket
             $imagePath = $request->file('img_upload')->storeAs('images', $fileName, 'b2');
-
-            // Ensure the file is set to public
-            Storage::disk('b2')->setVisibility($imagePath, 'public');
-
-            // Construct the public URL for the uploaded image
             $imageUrl = "https://f000.backblazeb2.com/file/" . env('B2_BUCKET_NAME') . "/" . $imagePath;
-
-            // Return success response with the image URL
-            return response()->json([
-                'success' => true,
-                'message' => 'Image uploaded successfully!',
-                'url' => $imageUrl,
-            ]);
         }
 
+        // upload
+        $contentFileName = time() . '-' . uniqid() . '.txt';
+        $contentFilePath = $request->content;
+
+        // Save the content as txt
+        Storage::disk('b2')->put('posts/' . $contentFileName, $contentFilePath);
+
+        // Store in database
         Eknexa::create([
             'title' => $request->title,
-            'content' => $request->content,
+            'content' => $contentFilePath,
             'image_path' => $imagePath,
+            'content_file_path' => 'posts/' . $contentFileName, // Save the file path
         ]);
 
         return redirect('/')->with('success', 'Post created successfully!');
