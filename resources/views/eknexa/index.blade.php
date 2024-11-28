@@ -10,9 +10,8 @@
     @if ($post->content_file_path)
     @php
     try {
-    // Ensure the correct folder is included in the content path
-    $contentFilePath = 'post/' . $post->content_file_path; // Assuming 'post/' is the folder name
-    $content = Storage::disk('b2')->get($contentFilePath);
+    // Fetch the content file from Backblaze B2 using content_file_path
+    $content = Storage::disk('b2')->get($post->content_file_path);
     } catch (\Exception $e) {
     $content = 'Error loading content from Backblaze B2.';
     }

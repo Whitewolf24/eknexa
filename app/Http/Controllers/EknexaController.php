@@ -31,26 +31,26 @@ class EknexaController extends Controller
         $imagePath = null;
         $contentFilePath = null;
 
-        // image upload
+        // Image upload
         if ($request->hasFile('img_upload')) {
             $fileName = time() . '-' . uniqid() . '.' . $request->file('img_upload')->getClientOriginalExtension();
             $imagePath = $request->file('img_upload')->storeAs('images', $fileName, 'b2');
             $imageUrl = "https://f000.backblazeb2.com/file/" . env('B2_BUCKET_NAME') . "/" . $imagePath;
         }
 
-        // upload
+        // Upload content as a txt file
         $contentFileName = time() . '-' . uniqid() . '.txt';
-        $contentFilePath = $request->content;
+        $contentFilePath = $request->content;  // Store raw content as file path
 
-        // Save the content as txt
+        // Save the content file to B2
         Storage::disk('b2')->put('posts/' . $contentFileName, $contentFilePath);
 
-        // Store in database
+        // Store post data in the database
         Eknexa::create([
             'title' => $request->title,
-            'content' => $contentFilePath,
+            'content' => $request->content,  // Store raw content here
             'image_path' => $imagePath,
-            'content_file_path' => 'posts/' . $contentFileName, // Save the file path
+            'content_file_path' => 'posts/' . $contentFileName,  // Store file path for later retrieval
         ]);
 
         return redirect('/')->with('success', 'Post created successfully!');
