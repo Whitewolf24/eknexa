@@ -19,7 +19,7 @@ class CreateEknexaTable extends Migration
                 $table->string('title');
                 $table->text('content');
                 $table->string('image_path')->nullable();
-                $table->string('content_file_path')->nullable();
+                $table->string('content_file_path');
                 $table->timestamps();
             });
         }
