@@ -6,12 +6,15 @@
 <div class="yliko{{ $loop->last ? ' last' : '' }}">
     <h1>{{ $post->title }}</h1>
 
-    <!-- Display content text from B2 storage -->
+    <!-- Display the creation date -->
+    <p><small>Created at: {{ $post->created_at->format('F j, Y, g:i a') }}</small></p>
+
+    <!-- Display content text from B2 storage via the friendly URL -->
     @if ($post->content_file_path)
     @php
     try {
-    // Fetch the content file from Backblaze B2 using content_file_path
-    $content = Storage::disk('b2')->get($post->content_file_path);
+    // Fetch the content file directly from the friendly URL
+    $content = file_get_contents($post->content_file_path);
     } catch (\Exception $e) {
     $content = 'Error loading content from Backblaze B2.';
     }

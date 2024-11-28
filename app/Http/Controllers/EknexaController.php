@@ -45,14 +45,17 @@ class EknexaController extends Controller
         // Save the content file to B2
         Storage::disk('b2')->put('posts/' . $contentFileName, $contentFilePath);
 
+        // Construct the friendly URL for the content file
+        $contentFileUrl = "https://f003.backblazeb2.com/file/" . env('B2_BUCKET_NAME') . "/posts/" . $contentFileName;
+
         // Store post data in the database
         Eknexa::create([
             'title' => $request->title,
-            'content' => $request->content,  // Store raw content here
+            'content' => $request->content,
             'image_path' => $imagePath,
-            'content_file_path' => 'posts/' . $contentFileName,  // Store file path for later retrieval
+            'content_file_path' => $contentFileUrl,
         ]);
 
-        return redirect('/')->with('success', 'Post created successfully!');
+        return redirect('/');
     }
 }

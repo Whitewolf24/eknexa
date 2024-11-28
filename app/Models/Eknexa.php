@@ -10,5 +10,10 @@ class Eknexa extends Model
     use HasFactory;
 
     protected $table = 'eknexa';
-    protected $fillable = ['title', 'content', 'image_path'];
+    protected $fillable = [
+        'title',
+        'content',
+        'image_path',
+        'content_file_path',
+    ];
 }
