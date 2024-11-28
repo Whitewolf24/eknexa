@@ -31,23 +31,24 @@ class EknexaController extends Controller
         $imagePath = null;
 
         if ($request->hasFile('img_upload')) {
-            try {
-                // Generate a unique file name
-                $fileName = time() . '-' . uniqid() . '.' . $request->img_upload->extension();
+            // Generate a unique file name with its original extension
+            $fileName = time() . '-' . uniqid() . '.' . $request->file('img_upload')->getClientOriginalExtension();
 
-                // Upload the image to Backblaze B2
-                $imagePath = $request->file('img_upload')->storeAs('images', $fileName, 'b2');
+            // Upload the image to the B2 bucket
+            $imagePath = $request->file('img_upload')->storeAs('images', $fileName, 'b2');
 
-                if ($imagePath) {
-                    // Make the file public
-                    Storage::disk('b2')->setVisibility($imagePath, 'public');
+            // Ensure the file is set to public
+            Storage::disk('b2')->setVisibility($imagePath, 'public');
 
-                    // Manually construct the public URL
-                    $imageUrl = "https://f000.backblazeb2.com/file/" . env('B2_BUCKET_NAME') . "/" . $imagePath;
-                }
-            } catch (Exception $e) {
-                return redirect()->back()->with('error', 'Error uploading the image: ' . $e->getMessage());
-            }
+            // Construct the public URL for the uploaded image
+            $imageUrl = "https://f000.backblazeb2.com/file/" . env('B2_BUCKET_NAME') . "/" . $imagePath;
+
+            // Return success response with the image URL
+            return response()->json([
+                'success' => true,
+                'message' => 'Image uploaded successfully!',
+                'url' => $imageUrl,
+            ]);
         }
 
         Eknexa::create([
