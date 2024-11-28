@@ -155,7 +155,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 <body>
     <header>
-        @include('eknexa.header')">
+        @include('eknexa.header')
     </header>
     @yield('content')
     <footer>@include('eknexa.footer')</footer>
