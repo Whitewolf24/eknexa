@@ -63,8 +63,7 @@ return [
             'secret' => env('B2_APP_KEY'), // Your Backblaze application key
             'region' => env('B2_BUCKET_REGION'), // The region your bucket is located in
             'bucket' => env('B2_BUCKET_NAME'), // Your Backblaze bucket name
-            'visibility' => 'public
-            ',
+            'visibility' => 'public',  // Corrected the missing quote
         ],
     ],
 
