@@ -21,3 +21,14 @@
     <button id="create" type="submit">Create Post</button>
 </form>
 @endsection
+
+<script>
+    document.getElementById('img_upload').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+
+        if (file && file.size > 10 * 1024 * 1024) { // 10MB
+            alert("Παρακαλώ επιλέξτε μια εικόνα με μέγεθος έως 10MB.");
+            event.target.value = '';
+        }
+    });
+</script>
