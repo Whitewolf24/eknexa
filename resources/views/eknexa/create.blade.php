@@ -23,20 +23,22 @@
 @endsection
 
 <script>
-    document.getElementById('img_upload').addEventListener('change', function(event) {
-        const file = event.target.files[0];
+    document.getElementById('form').addEventListener('submit', function(event) {
+        const choose_file = document.getElementById('img_upload');
+        const file = choose_file.files[0];
 
         if (file) {
+
             if (file.size > 10 * 1024 * 1024) {
                 alert("Παρακαλώ επιλέξτε μια εικόνα με μέγεθος έως 10MB.");
-                event.target.value = ''; 
+                event.preventDefault(); 
                 return;
             }
 
-            const valid = ['image/jpeg', 'image/jpg', 'image/webp', 'image/png'];
-            if (!valid.includes(file.type)) {
+            const types = ['image/jpeg', 'image/jpg', 'image/webp', 'image/png'];
+            if (!types.includes(file.type)) {
                 alert("Παρακαλώ επιλέξτε μια έγκυρη εικόνα (jpg, jpeg, webp, png).");
-                event.target.value = ''; 
+                event.preventDefault(); 
             }
         }
     });
