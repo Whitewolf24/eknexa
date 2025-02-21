@@ -15,7 +15,7 @@
     </div>
     <div id="image">
         <label>Image:</label>
-        <input type="file" name="img_upload">
+        <input type="file" name="img_upload" id="img_upload">
         @error('img_upload') <div class="error">{{ $message }}</div> @enderror
     </div>
     <button id="create" type="submit">Create Post</button>
@@ -26,9 +26,18 @@
     document.getElementById('img_upload').addEventListener('change', function(event) {
         const file = event.target.files[0];
 
-        if (file && file.size > 10 * 1024 * 1024) { // 10MB
-            alert("Παρακαλώ επιλέξτε μια εικόνα με μέγεθος έως 10MB.");
-            event.target.value = '';
+        if (file) {
+            if (file.size > 10 * 1024 * 1024) {
+                alert("Παρακαλώ επιλέξτε μια εικόνα με μέγεθος έως 10MB.");
+                event.target.value = ''; 
+                return;
+            }
+
+            const valid = ['image/jpeg', 'image/jpg', 'image/webp', 'image/png'];
+            if (!valid.includes(file.type)) {
+                alert("Παρακαλώ επιλέξτε μια έγκυρη εικόνα (jpg, jpeg, webp, png).");
+                event.target.value = ''; 
+            }
         }
     });
 </script>
