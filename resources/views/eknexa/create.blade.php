@@ -32,33 +32,31 @@
                 const content = document.getElementById('content');
                 const file = img_upload.files[0];
 
-                // Check if title is empty
                 if (!title.value.trim()) {
                     alert("Παρακαλώ συμπληρώστε τίτλο");
-                    event.preventDefault(); // Prevent form submission
+                    event.preventDefault();
                     return;
                 }
 
-                // Validate image file type and size
                 if (file) {
                     const valid_types = ['image/jpeg', 'image/jpg', 'image/webp', 'image/png'];
                     if (!valid_types.includes(file.type)) {
                         alert("Παρακαλώ επιλέξτε μια έγκυρη εικόνα (jpg, jpeg, webp, png).");
-                        event.preventDefault(); // Prevent form submission
+                        event.preventDefault();
                         return;
                     }
 
                     if (file.size > 10 * 1024 * 1024) {
                         alert("Παρακαλώ επιλέξτε μια εικόνα με μέγεθος έως 10MB.");
-                        event.preventDefault(); // Prevent form submission
+                        event.preventDefault();
                         return;
                     }
                 }
 
-                // Check if either content or image file is provided
+          
                 if (!file && !content.value.trim()) {
                     alert("Πρέπει να ανεβάσετε έστω κείμενο ή εικόνα");
-                    event.preventDefault(); // Prevent form submission
+                    event.preventDefault(); 
                     return;
                 }
             });
