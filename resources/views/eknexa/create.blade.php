@@ -5,12 +5,12 @@
     @csrf
     <div id="title">
         <label>Title:</label>
-        <input type="text" name="title" value="{{ old('title') }}" required>
+        <input type="text" name="title" value="{{ old('title') }}" id="title_input" required>
         @error('title') <div class="error">{{ $message }}</div> @enderror
     </div>
     <div id="content">
         <label>Content:</label>
-        <textarea name="content" id="content">{{ old('content') }}</textarea>
+        <textarea name="content" id="content_input">{{ old('content') }}</textarea>
         @error('content') <div class="error">{{ $message }}</div> @enderror
     </div>
     <div id="image">
@@ -27,9 +27,9 @@
         const form = document.getElementById('form');
         if (form) {
             form.addEventListener('submit', function(event) {
-                const title = document.getElementById('title');
+                const title = document.getElementById('title_input');
                 const img_upload = document.getElementById('img_upload');
-                const content = document.getElementById('content');
+                const content = document.getElementById('content_input');
                 const file = img_upload.files[0];
 
                 if (!title.value.trim()) {
@@ -53,10 +53,10 @@
                     }
                 }
 
-          
+
                 if (!file && !content.value.trim()) {
                     alert("Πρέπει να ανεβάσετε έστω κείμενο ή εικόνα");
-                    event.preventDefault(); 
+                    event.preventDefault();
                     return;
                 }
             });
