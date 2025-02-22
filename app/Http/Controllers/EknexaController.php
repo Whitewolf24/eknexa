@@ -39,7 +39,7 @@ class EknexaController extends Controller
         Storage::disk('b2')->put('posts/' . $content, $request->content);
         $content_url = "https://f003.backblazeb2.com/file/" . env('B2_BUCKET_NAME') . "/posts/" . $content;
         } else {
-    $content_url = null; // Set to null if empty
+    $content_url = null;
 }
         Eknexa::create([
             'title' => $request->title,

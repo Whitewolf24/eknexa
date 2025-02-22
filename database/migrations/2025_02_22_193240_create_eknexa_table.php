@@ -17,9 +17,9 @@ class CreateEknexaTable extends Migration
             Schema::create('eknexa', function (Blueprint $table) {
                 $table->id();
                 $table->string('title');
-                $table->text('content');
+                $table->text('content')->nullable();
                 $table->string('image_path')->nullable();
-                $table->string('content_file_path');
+                $table->string('content_file_path')->nullable();
                 $table->timestamps();
             });
         }
