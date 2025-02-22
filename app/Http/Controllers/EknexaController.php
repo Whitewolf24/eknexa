@@ -21,7 +21,7 @@ class EknexaController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'content' => 'required|string',
+            'content' => 'nullable|string',
             'img_upload' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240',
         ]);
 
