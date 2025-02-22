@@ -25,7 +25,6 @@ COPY . .
 # Install Laravel dependencies (production mode, optimized autoloader)
 RUN composer install --no-dev --optimize-autoloader && \
     composer clear-cache && \
-    php artisan migrate \  
     php artisan storage:link   
 
 # Set up Nginx configuration
