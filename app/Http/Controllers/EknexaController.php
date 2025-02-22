@@ -34,10 +34,13 @@ class EknexaController extends Controller
             $image_path = "https://f003.backblazeb2.com/file/" . env('B2_BUCKET_NAME') . "/images/" . $file;
         }
 
+        if (!empty($request->content)) {
         $content = time() . '-' . uniqid() . '.txt';
         Storage::disk('b2')->put('posts/' . $content, $request->content);
         $content_url = "https://f003.backblazeb2.com/file/" . env('B2_BUCKET_NAME') . "/posts/" . $content;
-
+        } else {
+    $content_url = null; // Set to null if empty
+}
         Eknexa::create([
             'title' => $request->title,
             'content' => $request->content,
