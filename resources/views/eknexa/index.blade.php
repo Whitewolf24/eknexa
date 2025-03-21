@@ -1,9 +1,5 @@
 @extends('layouts.eknexa_lay')
 
-@if(env('APP_ENV') === 'production')
-<meta name="robots" content="noindex, nofollow">
-@endif
-
 @section('content')
 <h2>Post List</h2>
 @foreach ($posts->sortByDesc('created_at') as $post)
