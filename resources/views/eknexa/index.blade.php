@@ -1,5 +1,9 @@
 @extends('layouts.eknexa_lay')
 
+@if(env('APP_ENV') === 'production')
+<meta name="robots" content="noindex, nofollow">
+@endif
+
 @section('content')
 <h2>Post List</h2>
 @foreach ($posts->sortByDesc('created_at') as $post)
@@ -15,7 +19,6 @@
     <img src="{{ $imageUrl }}" alt="{{ $post->title }}" class="post_img">
     @endif
 
-    <!-- Display content text from the file -->
     @if ($post->content_file_path)
     @php
     try {
@@ -25,7 +28,6 @@
     }
     @endphp
 
-    <!-- Display the content -->
     <p>{!! nl2br(e($content)) !!}</p>
     @endif
 </div>
