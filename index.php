@@ -1,5 +1,7 @@
+<?php
+ob_start();
+?>
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -173,3 +175,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </body>
 
 </html>
+
+<?php
+ob_end_flush();
+?>
